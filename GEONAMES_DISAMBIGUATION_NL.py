@@ -3,7 +3,7 @@
 """
 Created on Sat Nov  3 08:58:10 2018
 
-@author: polo
+@author: Yazid Bounab
 """
 import re
 import ast
@@ -137,13 +137,13 @@ def HASHTAG_LOCATION_MATCHING(df):
            cords1 = ast.literal_eval(df.at[i,'User_Cords'])
           
            if len(hashtag.split()) == 1:
-              Locations = get_potential_locations(hashtag,'panos.kostakos','0.9')
+              Locations = get_potential_locations(hashtag,'username','0.9')
               for loc in Locations:
                   cords2 = loc[3]#ast.literal_eval(loc[3])
                   SPHERIC_DISTs.append(distance_on_unit_sphere(cords1, cords2))
            elif len(hashtag.split()) > 1:
                 for token in hashtag.split():
-                    Locations.extend(get_potential_locations(token,'panos.kostakos','0.9'))
+                    Locations.extend(get_potential_locations(token,'username','0.9'))
                 for loc in Locations:
                     cords2 = loc[3]#ast.literal_eval(loc[3])
                     SPHERIC_DISTs.append(distance_on_unit_sphere(cords1, cords2))
